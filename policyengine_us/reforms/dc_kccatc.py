@@ -1,6 +1,5 @@
 from policyengine_us.model_api import *
-from policyengine_core.periods import period as period_
-
+from reforms.utilities import is_reform_active
 
 def create_dc_kccatc():
     class dc_kccatc(Variable):
@@ -96,13 +95,7 @@ def create_dc_kccatc_reform(parameters, period, bypass=False):
         return create_dc_kccatc()
 
     p = parameters(period).gov.contrib.dc_kccatc
-    current_period = period_(period)
-
-    for i in range(5):
-        if p(current_period).active:
-            reform_active = True
-            break
-        current_period = current_period.offset(1, "year")
+    reform_active = is_reform_active(p, period, "active")
 
     if reform_active:
         return create_dc_kccatc()
