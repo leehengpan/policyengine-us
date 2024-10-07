@@ -1,6 +1,5 @@
 from policyengine_us.model_api import *
-from policyengine_core.periods import period as period_
-
+from reforms.utilities import is_reform_active
 
 def create_ny_working_families_tax_credit() -> Reform:
     class ny_working_families_tax_credit(Variable):
@@ -531,14 +530,7 @@ def create_ny_working_families_tax_credit_reform(
         return create_ny_working_families_tax_credit()
 
     p = parameters(period).gov.contrib.states.ny.wftc
-    reform_active = False
-    current_period = period_(period)
-
-    for i in range(5):
-        if p(current_period).in_effect:
-            reform_active = True
-            break
-        current_period = current_period.offset(1, "year")
+    reform_active = is_reform_active(p, period)
 
     if reform_active:
         return create_ny_working_families_tax_credit()
