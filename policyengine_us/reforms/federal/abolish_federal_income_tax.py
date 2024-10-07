@@ -1,6 +1,5 @@
 from policyengine_us.model_api import *
-from policyengine_core.periods import period as period_
-
+from reforms.utilities import is_reform_active
 
 def create_abolish_federal_income_tax() -> Reform:
     class household_tax_before_refundable_credits(Variable):
@@ -55,13 +54,7 @@ def create_abolish_federal_income_tax_reform(
         return create_abolish_federal_income_tax()
 
     p = parameters(period).gov.contrib.ubi_center.flat_tax
-    current_period = period_(period)
-
-    for i in range(5):
-        if p(current_period).abolish_federal_income_tax:
-            reform_active = True
-            break
-        current_period = current_period.offset(1, "year")
+    reform_active = is_reform_active(p, period, "abolish_federal_income_tax")
 
     if reform_active:
         return create_abolish_federal_income_tax()
