@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from reforms.utilities import reform_is_active
+from ....utilities import reform_is_active
 
 
 # Repealing Minnesota Bill HF1938 to pre 2023 rules

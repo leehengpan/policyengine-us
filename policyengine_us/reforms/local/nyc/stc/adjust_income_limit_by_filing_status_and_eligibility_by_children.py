@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from reforms.utilities import reform_is_active
+from ....utilities import reform_is_active
 
 
 def create_adjust_income_limit_and_min_children_by_filing_status() -> Reform:

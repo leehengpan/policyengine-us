@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from reforms.utilities import reform_is_active
+from .....utilities import reform_is_active
 
 
 def create_family_security_act_2024_eitc() -> Reform:
