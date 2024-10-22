@@ -29,6 +29,7 @@ def create_family_security_act_2024_eitc() -> Reform:
 
     return reform
 
+
 family_security_act_2024_eitc = create_reform_if_active(
     None,
     None,
