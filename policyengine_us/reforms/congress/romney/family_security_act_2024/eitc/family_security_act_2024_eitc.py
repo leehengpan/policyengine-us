@@ -29,23 +29,6 @@ def create_family_security_act_2024_eitc() -> Reform:
 
     return reform
 
-
-def create_family_security_act_2024_eitc_reform(
-    parameters, period, bypass: bool = False
-):
-    if bypass or parameters is None:
-        return create_family_security_act_2024_eitc()
-
-    # Look ahead for the next five years
-    p = parameters.gov.contrib.congress.romney.family_security_act_2_0.eitc
-    reform_active = reform_is_active(p, period, 5, "apply_eitc_structure")
-
-    if reform_active:
-        return create_family_security_act_2024_eitc()
-    else:
-        return None
-
-
 family_security_act_2024_eitc = create_reform_if_active(
     None,
     None,
