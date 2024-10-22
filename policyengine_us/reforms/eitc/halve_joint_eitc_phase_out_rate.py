@@ -29,7 +29,7 @@ def create_halve_joint_eitc_phase_out_rate() -> Reform:
 def create_halve_joint_eitc_phase_out_rate_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_halve_joint_eitc_phase_out_rate()
 
     p = parameters(period).gov.contrib.joint_eitc

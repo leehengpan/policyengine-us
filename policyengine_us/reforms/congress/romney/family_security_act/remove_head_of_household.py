@@ -13,7 +13,7 @@ def create_remove_head_of_household() -> Reform:
 def create_remove_head_of_household_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_remove_head_of_household()
 
     # Look ahead for the next five years

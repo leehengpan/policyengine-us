@@ -57,7 +57,7 @@ def create_dc_ctc() -> Reform:
 
 
 def create_dc_ctc_reform(parameters, period, bypass: bool = False):
-    if bypass:
+    if bypass or parameters is None:
         return create_dc_ctc()
 
     p = parameters.gov.contrib.states.dc.ctc

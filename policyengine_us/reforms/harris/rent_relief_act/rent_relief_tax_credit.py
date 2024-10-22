@@ -78,7 +78,7 @@ def create_rent_relief_tax_credit() -> Reform:
 def create_rent_relief_tax_credit_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_rent_relief_tax_credit()
 
     p = parameters(

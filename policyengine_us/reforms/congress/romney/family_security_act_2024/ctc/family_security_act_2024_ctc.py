@@ -142,7 +142,7 @@ def create_family_security_act_2024_ctc() -> Reform:
 def create_family_security_act_2024_ctc_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_family_security_act_2024_ctc()
 
     # Look ahead for the next five years

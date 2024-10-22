@@ -52,7 +52,7 @@ def create_adjust_income_limit_and_min_children_by_filing_status() -> Reform:
 def create_adjust_income_limit_by_filing_status_and_eligibility_by_children_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_adjust_income_limit_and_min_children_by_filing_status()
 
     p = parameters(period).gov.contrib.local.nyc.stc

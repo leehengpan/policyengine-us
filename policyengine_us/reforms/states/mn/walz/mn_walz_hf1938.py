@@ -209,7 +209,7 @@ def create_mn_walz_hf1938_repeal() -> Reform:
 def create_mn_walz_hf1938_repeal_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_mn_walz_hf1938_repeal()
 
     p = parameters(period).gov.contrib.states.mn.walz.hf1938

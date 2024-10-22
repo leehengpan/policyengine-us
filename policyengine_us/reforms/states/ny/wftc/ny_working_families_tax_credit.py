@@ -527,7 +527,7 @@ def create_ny_working_families_tax_credit() -> Reform:
 def create_ny_working_families_tax_credit_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_ny_working_families_tax_credit()
 
     p = parameters(period).gov.contrib.states.ny.wftc

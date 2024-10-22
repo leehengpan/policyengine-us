@@ -142,7 +142,7 @@ def create_capital_gains_tax_increase() -> Reform:
 def create_capital_gains_tax_increase_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_capital_gains_tax_increase()
 
     p = parameters(period).gov.contrib.biden.budget_2025.capital_gains

@@ -88,6 +88,9 @@ def create_dc_kccatc_reform(parameters, period, bypass=False):
         def apply(self):
             self.update_variable(dc_kccatc)
 
+    if parameters is None:
+        return reform if bypass else None
+
     p = parameters(period).gov.contrib.dc_kccatc
     reform_active = reform_is_active(p, period, "active")
 

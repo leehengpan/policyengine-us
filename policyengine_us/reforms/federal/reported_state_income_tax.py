@@ -58,7 +58,7 @@ def create_reported_state_income_tax() -> Reform:
 def create_reported_state_income_tax_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_reported_state_income_tax()
 
     p = parameters(period).simulation

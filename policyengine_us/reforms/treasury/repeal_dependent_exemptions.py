@@ -25,7 +25,7 @@ def create_repeal_dependent_exemptions() -> Reform:
 def create_repeal_dependent_exemptions_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_repeal_dependent_exemptions()
 
     p = parameters.gov.contrib.treasury

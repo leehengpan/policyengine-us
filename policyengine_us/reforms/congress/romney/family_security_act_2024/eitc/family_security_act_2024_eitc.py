@@ -33,7 +33,7 @@ def create_family_security_act_2024_eitc() -> Reform:
 def create_family_security_act_2024_eitc_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_family_security_act_2024_eitc()
 
     # Look ahead for the next five years

@@ -51,7 +51,7 @@ def create_abolish_federal_income_tax() -> Reform:
 def create_abolish_federal_income_tax_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_abolish_federal_income_tax()
 
     p = parameters(period).gov.contrib.ubi_center.flat_tax

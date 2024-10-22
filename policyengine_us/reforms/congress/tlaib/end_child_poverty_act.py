@@ -177,7 +177,7 @@ def create_end_child_poverty_act() -> Reform:
 def create_end_child_poverty_act_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_end_child_poverty_act()
 
     p = parameters(period).gov.contrib.congress.tlaib.end_child_poverty_act

@@ -105,7 +105,7 @@ def create_ctc_expansion() -> Reform:
 
 
 def create_ctc_expansion_reform(parameters, period, bypass: bool = False):
-    if bypass:
+    if bypass or parameters is None:
         return create_ctc_expansion()
 
     # Look ahead for the next five years

@@ -8,27 +8,19 @@ def reform_is_active(
     Check if a reform is active within the specified number of years.
 
     Args:
-    parameter: The parameter object to check for activation. Can be None.
+    parameter: The parameter object to check for activation.
     period: The starting period to check from.
     years_to_check: Number of years to check (default is 5).
     condition_attr: The attribute or method to check for activation (default is 'in_effect').
 
     Returns:
     bool: True if the reform is active within the specified years, False otherwise.
-    If parameter is None, returns False.
     """
-    # If parameter is None, return False immediately
-    if parameter is None:
-        return False
-
     current_period = period_(period)
 
     for _ in range(years_to_check):
         param_value = parameter(current_period)
-        # Use hasattr to check if the attribute exists before using getattr
-        if hasattr(param_value, condition_attr) and getattr(
-            param_value, condition_attr, False
-        ):
+        if getattr(param_value, condition_attr, False):
             return True
         current_period = current_period.offset(1, "year")
 

@@ -46,7 +46,7 @@ def create_or_rebate_state_tax_exempt() -> Reform:
 def create_or_rebate_state_tax_exempt_reform(
     parameters, period, bypass: bool = False
 ):
-    if bypass:
+    if bypass or parameters is None:
         return create_or_rebate_state_tax_exempt()
 
     p = parameters(period).gov.contrib.states["or"].rebate
