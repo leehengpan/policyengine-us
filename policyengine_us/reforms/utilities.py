@@ -26,7 +26,9 @@ def reform_is_active(
     for _ in range(years_to_check):
         param_value = parameter(current_period)
         # Use hasattr to check if the attribute exists before using getattr
-        if hasattr(param_value, condition_attr) and getattr(param_value, condition_attr, False):
+        if hasattr(param_value, condition_attr) and getattr(
+            param_value, condition_attr, False
+        ):
             return True
         current_period = current_period.offset(1, "year")
 
