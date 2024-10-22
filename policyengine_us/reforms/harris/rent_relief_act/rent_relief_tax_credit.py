@@ -1,5 +1,6 @@
 from policyengine_us.model_api import *
-from reforms.utilities import is_reform_active
+from reforms.utilities import reform_is_active
+
 
 def create_rent_relief_tax_credit() -> Reform:
     class rent_relief_tax_credit(Variable):
@@ -83,7 +84,7 @@ def create_rent_relief_tax_credit_reform(
     p = parameters(
         period
     ).gov.contrib.harris.rent_relief_act.rent_relief_credit
-    reform_active = is_reform_active(p, period)
+    reform_active = reform_is_active(p, period)
 
     if reform_active:
         return create_rent_relief_tax_credit()

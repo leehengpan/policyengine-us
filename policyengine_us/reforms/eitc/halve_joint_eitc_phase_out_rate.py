@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from reforms.utilities import is_reform_active
+from reforms.utilities import reform_is_active
 
 
 def create_halve_joint_eitc_phase_out_rate() -> Reform:
@@ -33,7 +33,7 @@ def create_halve_joint_eitc_phase_out_rate_reform(
         return create_halve_joint_eitc_phase_out_rate()
 
     p = parameters(period).gov.contrib.joint_eitc
-    reform_active = is_reform_active(p, period)
+    reform_active = reform_is_active(p, period)
 
     if reform_active:
         return create_halve_joint_eitc_phase_out_rate()

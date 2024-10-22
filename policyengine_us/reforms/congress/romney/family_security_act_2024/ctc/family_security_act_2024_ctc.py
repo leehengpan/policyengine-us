@@ -1,5 +1,6 @@
 from policyengine_us.model_api import *
-from reforms.utilities import is_reform_active
+from reforms.utilities import reform_is_active
+
 
 def create_family_security_act_2024_ctc() -> Reform:
     class ctc_phase_in_rate(Variable):
@@ -146,7 +147,7 @@ def create_family_security_act_2024_ctc_reform(
 
     # Look ahead for the next five years
     p = parameters.gov.contrib.congress.romney.family_security_act_2_0.ctc
-    reform_active = is_reform_active(p, period, "apply_ctc_structure")
+    reform_active = reform_is_active(p, period, "apply_ctc_structure")
 
     if reform_active:
         return create_family_security_act_2024_ctc()

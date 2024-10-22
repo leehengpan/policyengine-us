@@ -1,5 +1,6 @@
 from policyengine_us.model_api import *
-from reforms.utilities import is_reform_active
+from reforms.utilities import reform_is_active
+
 
 def create_dc_ctc() -> Reform:
     class dc_ctc(Variable):
@@ -60,7 +61,7 @@ def create_dc_ctc_reform(parameters, period, bypass: bool = False):
         return create_dc_ctc()
 
     p = parameters.gov.contrib.states.dc.ctc
-    reform_active = is_reform_active(p, period)
+    reform_active = reform_is_active(p, period)
 
     if reform_active:
         return create_dc_ctc()
