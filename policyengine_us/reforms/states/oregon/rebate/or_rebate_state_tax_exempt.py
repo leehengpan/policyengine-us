@@ -50,7 +50,7 @@ def create_or_rebate_state_tax_exempt_reform(
         return create_or_rebate_state_tax_exempt()
 
     p = parameters(period).gov.contrib.states["or"].rebate
-    reform_active = reform_is_active(p, period, "state_tax_exempt")
+    reform_active = reform_is_active(p, period, 5, "state_tax_exempt")
 
     if reform_active:
         return create_or_rebate_state_tax_exempt()

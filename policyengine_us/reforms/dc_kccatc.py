@@ -92,7 +92,7 @@ def create_dc_kccatc_reform(parameters, period, bypass=False):
         return reform if bypass else None
 
     p = parameters(period).gov.contrib.dc_kccatc
-    reform_active = reform_is_active(p, period, "active")
+    reform_active = reform_is_active(p, period, 5, "active")
 
     if bypass or reform_active:
         return reform

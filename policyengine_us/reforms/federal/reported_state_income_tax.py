@@ -62,7 +62,7 @@ def create_reported_state_income_tax_reform(
         return create_reported_state_income_tax()
 
     p = parameters(period).simulation
-    reform_active = reform_is_active(p, period, "reported_state_income_tax")
+    reform_active = reform_is_active(p, period, 5, "reported_state_income_tax")
 
     if reform_active:
         return create_reported_state_income_tax()

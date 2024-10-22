@@ -35,7 +35,7 @@ def create_abolish_payroll_tax_reform(
         return create_abolish_payroll_tax()
 
     p = parameters(period).gov.contrib.ubi_center.flat_tax
-    reform_active = reform_is_active(p, period, "abolish_payroll_tax")
+    reform_active = reform_is_active(p, period, 5, "abolish_payroll_tax")
 
     if reform_active:
         return create_abolish_payroll_tax()

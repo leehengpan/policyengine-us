@@ -29,7 +29,7 @@ def create_repeal_dependent_exemptions_reform(
         return create_repeal_dependent_exemptions()
 
     p = parameters.gov.contrib.treasury
-    reform_active = reform_is_active(p, period, "repeal_dependent_exemptions")
+    reform_active = reform_is_active(p, period, 5, "repeal_dependent_exemptions")
 
     if reform_active:
         return create_repeal_dependent_exemptions()

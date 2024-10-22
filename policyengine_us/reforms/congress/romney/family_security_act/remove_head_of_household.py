@@ -18,7 +18,7 @@ def create_remove_head_of_household_reform(
 
     # Look ahead for the next five years
     p = parameters.gov.contrib.congress.romney.family_security_act
-    reform_active = reform_is_active(p, period, "remove_head_of_household")
+    reform_active = reform_is_active(p, period, 5, "remove_head_of_household")
 
     if reform_active:
         return create_remove_head_of_household()

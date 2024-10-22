@@ -146,7 +146,7 @@ def create_capital_gains_tax_increase_reform(
         return create_capital_gains_tax_increase()
 
     p = parameters(period).gov.contrib.biden.budget_2025.capital_gains
-    reform_active = reform_is_active(p, period, "active")
+    reform_active = reform_is_active(p, period, 5, "active")
 
     if reform_active:
         return create_capital_gains_tax_increase()

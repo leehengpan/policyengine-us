@@ -147,7 +147,7 @@ def create_family_security_act_2024_ctc_reform(
 
     # Look ahead for the next five years
     p = parameters.gov.contrib.congress.romney.family_security_act_2_0.ctc
-    reform_active = reform_is_active(p, period, "apply_ctc_structure")
+    reform_active = reform_is_active(p, period, 5, "apply_ctc_structure")
 
     if reform_active:
         return create_family_security_act_2024_ctc()

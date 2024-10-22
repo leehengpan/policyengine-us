@@ -213,7 +213,7 @@ def create_mn_walz_hf1938_repeal_reform(
         return create_mn_walz_hf1938_repeal()
 
     p = parameters(period).gov.contrib.states.mn.walz.hf1938
-    reform_active = reform_is_active(p, period, "repeal")
+    reform_active = reform_is_active(p, period, 5, "repeal")
 
     if reform_active:
         return create_mn_walz_hf1938_repeal()
