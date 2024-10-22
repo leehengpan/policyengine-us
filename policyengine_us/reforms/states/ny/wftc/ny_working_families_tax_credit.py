@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from ....utilities import reform_is_active
+from policyengine_us.reforms.utils import create_reform_if_active
 
 
 def create_ny_working_families_tax_credit() -> Reform:
@@ -524,21 +524,10 @@ def create_ny_working_families_tax_credit() -> Reform:
     return reform
 
 
-def create_ny_working_families_tax_credit_reform(
-    parameters, period, bypass: bool = False
-):
-    if bypass or parameters is None:
-        return create_ny_working_families_tax_credit()
-
-    p = parameters(period).gov.contrib.states.ny.wftc
-    reform_active = reform_is_active(p, period)
-
-    if reform_active:
-        return create_ny_working_families_tax_credit()
-    else:
-        return None
-
-
-ny_working_families_tax_credit = create_ny_working_families_tax_credit_reform(
-    None, None, bypass=True
+ny_working_families_tax_credit = create_reform_if_active(
+    None,
+    None,
+    "gov.contrib.states.ny.wftc.in_effect",
+    create_ny_working_families_tax_credit,
+    bypass=True,
 )

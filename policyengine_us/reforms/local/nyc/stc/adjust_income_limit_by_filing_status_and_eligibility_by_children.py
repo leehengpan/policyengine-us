@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from ....utilities import reform_is_active
+from policyengine_us.reforms.utils import create_reform_if_active
 
 
 def create_adjust_income_limit_and_min_children_by_filing_status() -> Reform:
@@ -49,26 +49,10 @@ def create_adjust_income_limit_and_min_children_by_filing_status() -> Reform:
     return reform
 
 
-def create_adjust_income_limit_by_filing_status_and_eligibility_by_children_reform(
-    parameters, period, bypass: bool = False
-):
-    if bypass or parameters is None:
-        return create_adjust_income_limit_and_min_children_by_filing_status()
-
-    p = parameters(period).gov.contrib.local.nyc.stc
-    reform_active = reform_is_active(
-        p,
-        period,
-        5,
-        "adjust_income_limit_by_filing_status_and_eligibility_by_children",
-    )
-
-    if reform_active:
-        return create_adjust_income_limit_and_min_children_by_filing_status()
-    else:
-        return None
-
-
-adjust_income_limit_and_min_children_by_filing_status = create_adjust_income_limit_by_filing_status_and_eligibility_by_children_reform(
-    None, None, bypass=True
+adjust_income_limit_and_min_children_by_filing_status = create_reform_if_active(
+    None,
+    None,
+    "gov.contrib.local.nyc.stc.adjust_income_limit_by_filing_status_and_eligibility_by_children",
+    create_adjust_income_limit_and_min_children_by_filing_status,
+    bypass=True,
 )

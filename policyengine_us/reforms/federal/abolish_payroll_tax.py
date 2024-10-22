@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from ..utilities import reform_is_active
+from policyengine_us.reforms.utils import create_reform_if_active
 
 
 def create_abolish_payroll_tax() -> Reform:
@@ -28,21 +28,10 @@ def create_abolish_payroll_tax() -> Reform:
     return reform
 
 
-def create_abolish_payroll_tax_reform(
-    parameters, period, bypass: bool = False
-):
-    if bypass or parameters is None:
-        return create_abolish_payroll_tax()
-
-    p = parameters(period).gov.contrib.ubi_center.flat_tax
-    reform_active = reform_is_active(p, period, 5, "abolish_payroll_tax")
-
-    if reform_active:
-        return create_abolish_payroll_tax()
-    else:
-        return None
-
-
-abolish_payroll_tax = create_abolish_payroll_tax_reform(
-    None, None, bypass=True
+abolish_payroll_tax = create_reform_if_active(
+    None,
+    None,
+    "gov.contrib.ubi_center.flat_tax.abolish_payroll_tax",
+    create_abolish_payroll_tax,
+    bypass=True,
 )

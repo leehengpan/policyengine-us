@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from .....utilities import reform_is_active
+from policyengine_us.reforms.utils import create_reform_if_active
 
 
 def create_family_security_act_2024_ctc() -> Reform:
@@ -139,22 +139,10 @@ def create_family_security_act_2024_ctc() -> Reform:
     return reform
 
 
-def create_family_security_act_2024_ctc_reform(
-    parameters, period, bypass: bool = False
-):
-    if bypass or parameters is None:
-        return create_family_security_act_2024_ctc()
-
-    # Look ahead for the next five years
-    p = parameters.gov.contrib.congress.romney.family_security_act_2_0.ctc
-    reform_active = reform_is_active(p, period, 5, "apply_ctc_structure")
-
-    if reform_active:
-        return create_family_security_act_2024_ctc()
-    else:
-        return None
-
-
-family_security_act_2024_ctc = create_family_security_act_2024_ctc_reform(
-    None, None, bypass=True
+family_security_act_2024_ctc = create_reform_if_active(
+    None,
+    None,
+    "gov.contrib.congress.romney.family_security_act_2_0.ctc.apply_ctc_structure",
+    create_family_security_act_2024_ctc,
+    bypass=True,
 )

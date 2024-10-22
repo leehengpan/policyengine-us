@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from .....utilities import reform_is_active
+from policyengine_us.reforms.utils import create_reform_if_active
 
 
 def create_family_security_act_2024_eitc() -> Reform:
@@ -46,6 +46,10 @@ def create_family_security_act_2024_eitc_reform(
         return None
 
 
-family_security_act_2024_eitc = create_family_security_act_2024_eitc_reform(
-    None, None, bypass=True
+family_security_act_2024_eitc = create_reform_if_active(
+    None,
+    None,
+    "gov.contrib.congress.romney.family_security_act_2_0.eitc.apply_eitc_structure",
+    create_family_security_act_2024_eitc,
+    bypass=True,
 )

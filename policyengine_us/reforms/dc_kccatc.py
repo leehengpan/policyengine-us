@@ -92,7 +92,7 @@ def create_dc_kccatc_reform(parameters, period, bypass=False):
 dc_kccatc_reform = create_reform_if_active(
     None,
     None,
-    "gov.contrib.states.dc.tax.income.credits.kccatc.in_effect",
+    "gov.contrib.dc_kccatc.active",
     create_dc_kccatc_reform,
     bypass=True,
 )
