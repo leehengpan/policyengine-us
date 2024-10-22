@@ -1,5 +1,5 @@
 from policyengine_us.model_api import *
-from .utilities import reform_is_active
+from policyengine_us.reforms.utils import create_reform_if_active
 
 
 def create_dc_kccatc_reform(parameters, period, bypass=False):
@@ -88,16 +88,10 @@ def create_dc_kccatc_reform(parameters, period, bypass=False):
         def apply(self):
             self.update_variable(dc_kccatc)
 
-    if parameters is None:
-        return reform if bypass else None
-
-    p = parameters(period).gov.contrib.dc_kccatc
-    reform_active = reform_is_active(p, period, 5, "active")
-
-    if bypass or reform_active:
-        return reform
-    else:
-        return None
-
-
-dc_kccatc_reform = create_dc_kccatc_reform(None, None, True)
+dc_kccatc_reform = create_reform_if_active(
+    None, 
+    None, 
+    "gov.contrib.states.dc.tax.income.credits.kccatc.in_effect",
+    create_dc_kccatc_reform, 
+    bypass=True
+)
