@@ -75,7 +75,7 @@ def create_medicare_and_investment_tax_increase_reform(
     if bypass:
         return create_medicare_and_investment_tax_increase()
 
-    p = parameters(period).gov.contrib.biden.budget_2025
+    p = parameters.gov.contrib.biden.budget_2025
     current_period = period_(period)
     reform_active = False
 

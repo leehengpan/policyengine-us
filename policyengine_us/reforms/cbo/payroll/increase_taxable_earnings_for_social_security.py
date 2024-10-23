@@ -33,7 +33,7 @@ def create_increase_taxable_earnings_for_social_security_reform(
     if bypass:
         return create_increase_taxable_earnings_for_social_security()
 
-    p = parameters(period).gov.contrib.cbo.payroll
+    p = parameters.gov.contrib.cbo.payroll
     current_period = period_(period)
     reform_active = False
 
