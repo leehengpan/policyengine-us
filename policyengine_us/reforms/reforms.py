@@ -66,8 +66,8 @@ def create_structural_reforms_from_parameters(parameters, period):
         create_dc_tax_threshold_joint_ratio_reform(parameters, period)
     )
     remove_head_of_household = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.congress.romney.family_security_act.remove_head_of_household",
         create_remove_head_of_household,
         bypass=True,
@@ -81,124 +81,124 @@ def create_structural_reforms_from_parameters(parameters, period):
         create_medicare_and_investment_tax_increase_reform(parameters, period)
     )
     ctc_expansion = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.congress.wyden_smith",
         create_ctc_expansion,
         bypass=True,
     )
 
     abolish_federal_income_tax = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.ubi_center.flat_tax.abolish_federal_income_tax",
         create_abolish_federal_income_tax,
         bypass=True,
     )
     abolish_payroll_tax = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.ubi_center.flat_tax.abolish_payroll_tax",
         create_abolish_payroll_tax,
         bypass=True,
     )
     reported_state_income_tax = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "simulation.reported_state_income_tax",
         create_reported_state_income_tax,
         bypass=True,
     )
     capital_gains_tax_increase = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.biden.budget_2025.capital_gains.active",
         create_capital_gains_tax_increase,
         bypass=True,
     )
     halve_joint_eitc_phase_out_rate = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.joint_eitc.in_effect",
         create_halve_joint_eitc_phase_out_rate,
         bypass=True,
     )
     ny_wftc = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.states.ny.wftc.in_effect",
         create_ny_working_families_tax_credit,
         bypass=True,
     )
 
     dc_ctc = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.states.dc.ctc.in_effect",
         create_dc_ctc,
         bypass=True,
     )
 
     middle_class_tax_credit = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.harris.lift.middle_class_tax_credit.in_effect",
         create_middle_class_tax_credit,
         bypass=True,
     )
     rent_relief_tax_credit = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.harris.rent_relief_act.rent_relief_credit.in_effect",
         create_rent_relief_tax_credit,
         bypass=True,
     )
     end_child_poverty_act = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.congress.tlaib.end_child_poverty_act.in_effect",
         create_end_child_poverty_act,
         bypass=True,
     )
     boost_middle_class_tax_credit = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.harris.lift.middle_class_tax_credit.in_effect",
         create_boost_middle_class_tax_credit,
         bypass=True,
     )
     mn_walz_hf1938 = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.states.mn.walz.hf1938.repeal",
         create_mn_walz_hf1938_repeal,
         bypass=True,
     )
 
     or_rebate_state_tax_exempt = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.states.or.rebate.state_tax_exempt",
         create_or_rebate_state_tax_exempt,
         bypass=True,
     )
     family_security_act_2024_ctc = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.congress.romney.family_security_act_2_0.ctc.apply_ctc_structure",
         create_family_security_act_2024_ctc,
         bypass=True,
     )
     family_security_act_2024_eitc = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.congress.romney.family_security_act_2_0.eitc.apply_eitc_structure",
         create_family_security_act_2024_eitc,
         bypass=True,
     )
     repeal_dependent_exemptions = create_reform_if_active(
-        None,
-        None,
+        parameters,
+        period,
         "gov.contrib.treasury.repeal_dependent_exemptions",
         create_repeal_dependent_exemptions,
         bypass=True,

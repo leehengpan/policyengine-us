@@ -18,14 +18,20 @@ def create_reform_if_active(
     Reform or None: The reform if the parameter is truthy or bypassed, None otherwise.
     """
 
+    def create_reform():
+        if "parameters" in reform_function.__code__.co_varnames:
+            return reform_function(parameters, period)
+        else:
+            return reform_function()
+
     if bypass:
-        return reform_function()
+        return create_reform()
 
     current_period = period_(period)
 
     for _ in range(5):
         if parameters(current_period).get_descendants(parameter_path):
-            return reform_function()
+            return create_reform()
         current_period = current_period.offset(1, "year")
 
     return None
