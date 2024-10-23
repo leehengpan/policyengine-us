@@ -53,7 +53,7 @@ from .treasury.repeal_dependent_exemptions import (
 
 from policyengine_core.reforms import Reform
 import warnings
-from policyengine_us.utils import create_reform_if_active
+from policyengine_us.reforms.utils import create_reform_if_active
 
 
 def create_structural_reforms_from_parameters(parameters, period):
